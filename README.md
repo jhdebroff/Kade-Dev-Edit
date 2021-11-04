@@ -85,3 +85,12 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - [Fox](https://twitter.com/FoxeruKun) - circle noteskins
 - [Orbyy](https://twitter.com/orbyynew) - pixel circle noteskins
 - [Shubs](https://github.com/Yoshubs) - Forever Engine dump cache
+
+### My Edits/To-do list
+ - Getting rid of campaign for now (may put it somewhere else in the future)
+ - Changing the song selection system
+ - ways to order song selection screen (title, difficulty, length etc.)
+ - cursor implementation might be cool
+ - adding mod options to songs: make song faster/slower, notes smaller/larger (Some of these exist in the options screen, but a seperate screen in the play mode for them would be nice)
+ - making song download process easier
+ - skinning could be cool (This would be a big undertaking BUT Kade Dev already added a lot of features that would make this easier)
