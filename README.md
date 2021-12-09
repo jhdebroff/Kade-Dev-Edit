@@ -94,3 +94,10 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
  - adding mod options to songs: make song faster/slower, notes smaller/larger (Some of these exist in the options screen, but a seperate screen in the play mode for them would be nice)
  - making song download process easier
  - skinning could be cool (This would be a big undertaking BUT Kade Dev already added a lot of features that would make this easier)
+
+### Note: Where the game is saved
+ - Windows: %APPDATA%   -> kadedev (ninjamuffin if you are using the original FNF)
+ - Mac: tbh im not sure lol
+ - Linux: home/user/.local/share/Kadedev (ninjamuffin if you are using the original FNF)
+
+DO NOT CHANGE THE PAUSE KEYBIND, IT CANNOT BE PUT BACK TO RESET WITHOUT DELETING A SAVE RN

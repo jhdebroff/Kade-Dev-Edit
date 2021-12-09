@@ -27,7 +27,7 @@ class KeyBinds
 		FlxG.save.data.gpdownBind = "DPAD_DOWN";
 		FlxG.save.data.gpleftBind = "DPAD_LEFT";
 		FlxG.save.data.gprightBind = "DPAD_RIGHT";
-		FlxG.save.data.pauseBind = "ENTER";
+		FlxG.save.data.pauseBind = "ESCAPE";
 		FlxG.save.data.gppauseBind = "START";
 		FlxG.save.data.resetBind = "R";
 		FlxG.save.data.gpresetBind = "SELECT";
@@ -83,7 +83,7 @@ class KeyBinds
 		}
 		if (FlxG.save.data.pauseBind == null)
 		{
-			FlxG.save.data.pauseBind = "ENTER";
+			FlxG.save.data.pauseBind = "ESCAPE";
 			trace("No ENTER");
 		}
 		if (FlxG.save.data.gppauseBind == null)

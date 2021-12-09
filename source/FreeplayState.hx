@@ -20,6 +20,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import Options;
 #if FEATURE_DISCORD
 import Discord.DiscordClient;
 #end
@@ -41,7 +42,8 @@ class FreeplayState extends MusicBeatState
 	var comboText:FlxText;
 	var diffText:FlxText;
 	var diffCalcText:FlxText;
-	var previewtext:FlxText;
+	var previewText:FlxText;
+	var autoText:FlxText;
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 	var combo:String = '';
@@ -123,6 +125,9 @@ class FreeplayState extends MusicBeatState
 					}
 				}
 			}
+
+			FlxG.save.data.botplay = false;
+			
 		}
 		#end
 
@@ -174,7 +179,7 @@ class FreeplayState extends MusicBeatState
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		// scoreText.alignment = RIGHT;
 
-		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.4), 135, 0xFF000000);
+		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.4), 165, 0xFF000000);
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
@@ -186,9 +191,13 @@ class FreeplayState extends MusicBeatState
 		diffCalcText.font = scoreText.font;
 		add(diffCalcText);
 
-		previewtext = new FlxText(scoreText.x, scoreText.y + 96, 0, "Rate: " + FlxMath.roundDecimal(rate, 2) + "x", 24);
-		previewtext.font = scoreText.font;
-		add(previewtext);
+		previewText = new FlxText(scoreText.x, scoreText.y + 96, 0, "Rate: " + FlxMath.roundDecimal(rate, 2) + "x", 24);
+		previewText.font = scoreText.font;
+		add(previewText);
+
+		autoText = new FlxText(scoreText.x, scoreText.y + 126, 0, "Auto: off", 24);
+		autoText.font = scoreText.font;
+		add(autoText);
 
 		comboText = new FlxText(diffText.x + 100, diffText.y, 0, "", 24);
 		comboText.font = diffText.font;
@@ -390,15 +399,30 @@ class FreeplayState extends MusicBeatState
 				diffCalcText.text = 'RATING: ${DiffCalc.CalculateDiff(songData.get(songs[curSelected].songName)[curDifficulty])}';
 			}
 
-			previewtext.text = "Rate: " + FlxMath.roundDecimal(rate, 2) + "x";
+			previewText.text = "Rate: " + FlxMath.roundDecimal(rate, 2) + "x";
 		}
 		else
 		{
-			if (FlxG.keys.justPressed.LEFT)
+			if (FlxG.keys.justPressed.LEFT){
 				changeDiff(-1);
-			if (FlxG.keys.justPressed.RIGHT)
+			}
+			if (FlxG.keys.justPressed.RIGHT){
 				changeDiff(1);
+			}
 		}
+
+		if (FlxG.keys.pressed.SHIFT){
+			if (FlxG.keys.justPressed.SPACE){
+				if (FlxG.save.data.botplay == false){
+					FlxG.save.data.botplay = true;
+					autoText.text = "Auto: on";
+				}
+				else{
+					FlxG.save.data.botplay = false;
+					autoText.text = "Auto: off";
+				}
+			}
+		} 
 
 		#if cpp
 		@:privateAccess

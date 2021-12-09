@@ -33,7 +33,7 @@ class KeyBindMenu extends FlxSubState
 	var keyText:Array<String> = [
 		"LEFT", "DOWN", "UP", "RIGHT", "PAUSE", "RESET", "MUTE", "VOLUME UP", "VOLUME DOWN", "FULLSCREEN"
 	];
-	var defaultKeys:Array<String> = ["A", "S", "W", "D", "ENTER", "R", "NUMPADZERO", "NUMPADMINUS", "NUMPADPLUS", "F"];
+	var defaultKeys:Array<String> = ["A", "S", "W", "D", "ESCAPE", "R", "NUMPADZERO", "NUMPADMINUS", "NUMPADPLUS", "F"];
 	var defaultGpKeys:Array<String> = ["DPAD_LEFT", "DPAD_DOWN", "DPAD_UP", "DPAD_RIGHT", "START", "SELECT"];
 	var curSelected:Int = 0;
 
@@ -52,7 +52,7 @@ class KeyBindMenu extends FlxSubState
 	];
 
 	var tempKey:String = "";
-	var blacklist:Array<String> = ["ESCAPE", "BACKSPACE", "SPACE", "TAB"];
+	var blacklist:Array<String> = ["BACKSPACE", "SPACE", "TAB"];
 
 	var blackBox:FlxSprite;
 	var infoText:FlxText;
@@ -147,10 +147,10 @@ class KeyBindMenu extends FlxSubState
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					state = "input";
 				}
-				else if (FlxG.keys.justPressed.ESCAPE)
-				{
-					quit();
-				}
+				//else if (FlxG.keys.justPressed.ESCAPE)
+				//{
+					//quit();
+				//}
 				else if (FlxG.keys.justPressed.BACKSPACE)
 				{
 					reset();
@@ -202,12 +202,12 @@ class KeyBindMenu extends FlxSubState
 			case "waiting":
 				if (gamepad != null && KeyBinds.gamepad) // GP Logic
 				{
-					if (FlxG.keys.justPressed.ESCAPE)
+					//if (FlxG.keys.justPressed.ESCAPE)
 					{ // just in case you get stuck
-						gpKeys[curSelected] = tempKey;
-						state = "select";
-						FlxG.sound.play(Paths.sound('confirmMenu'));
-					}
+						//gpKeys[curSelected] = tempKey;
+						//state = "select";
+						//FlxG.sound.play(Paths.sound('confirmMenu'));
+					//}
 
 					if (gamepad.justPressed.START)
 					{
@@ -227,19 +227,19 @@ class KeyBindMenu extends FlxSubState
 				}
 				else
 				{
-					if (FlxG.keys.justPressed.ESCAPE)
-					{
-						keys[curSelected] = tempKey;
-						state = "select";
-						FlxG.sound.play(Paths.sound('confirmMenu'));
-					}
-					else if (FlxG.keys.justPressed.ENTER)
+					//if (FlxG.keys.justPressed.ESCAPE)
+					//{
+						//keys[curSelected] = tempKey;
+						//state = "select";
+						//FlxG.sound.play(Paths.sound('confirmMenu'));
+					//}
+					if (FlxG.keys.justPressed.ENTER)
 					{
 						addKey(defaultKeys[curSelected]);
 						save();
 						state = "select";
 					}
-					else if (FlxG.keys.justPressed.ANY)
+					else if (FlxG.keys.justReleased.ANY)
 					{
 						addKey(FlxG.keys.getIsDown()[0].ID.toString());
 						save();

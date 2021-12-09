@@ -506,7 +506,7 @@ class Controls extends FlxActionSet
 					inline bindKeys(Control.RIGHT, [FlxKey.fromString("D"), FlxKey.RIGHT]);
 					inline bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
 					inline bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
-					inline bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
+					inline bindKeys(Control.PAUSE, [ESCAPE]);
 					inline bindKeys(Control.RESET, [FlxKey.fromString("R")]);
 				case Duo(true):
 					inline bindKeys(Control.UP, [W, K]);
@@ -515,7 +515,7 @@ class Controls extends FlxActionSet
 					inline bindKeys(Control.RIGHT, [D, L]);
 					inline bindKeys(Control.ACCEPT, [Z]);
 					inline bindKeys(Control.BACK, [X]);
-					inline bindKeys(Control.PAUSE, [ONE]);
+					inline bindKeys(Control.PAUSE, [ESCAPE]);
 					inline bindKeys(Control.RESET, [R]);
 				case Duo(false):
 					inline bindKeys(Control.UP, [FlxKey.UP]);
@@ -524,7 +524,7 @@ class Controls extends FlxActionSet
 					inline bindKeys(Control.RIGHT, [FlxKey.RIGHT]);
 					inline bindKeys(Control.ACCEPT, [O]);
 					inline bindKeys(Control.BACK, [P]);
-					inline bindKeys(Control.PAUSE, [ENTER]);
+					inline bindKeys(Control.PAUSE, [ESCAPE]);
 					inline bindKeys(Control.RESET, [BACKSPACE]);
 				case None: // nothing
 				case Custom: // nothing
@@ -539,7 +539,7 @@ class Controls extends FlxActionSet
 					bindKeys(Control.RIGHT, [D, L, FlxKey.RIGHT]);
 					bindKeys(Control.ACCEPT, [Z, SPACE, ENTER]);
 					bindKeys(Control.BACK, [BACKSPACE, ESCAPE]);
-					bindKeys(Control.PAUSE, [P, ENTER, ESCAPE]);
+					bindKeys(Control.PAUSE, [ESCAPE]);
 					bindKeys(Control.RESET, [R]);
 				case Duo(true):
 					bindKeys(Control.UP, [W, K]);
@@ -548,7 +548,7 @@ class Controls extends FlxActionSet
 					bindKeys(Control.RIGHT, [D, L]);
 					bindKeys(Control.ACCEPT, [Z]);
 					bindKeys(Control.BACK, [X]);
-					bindKeys(Control.PAUSE, [ONE]);
+					bindKeys(Control.PAUSE, [ESCAPE]);
 					bindKeys(Control.RESET, [R]);
 				case Duo(false):
 					bindKeys(Control.UP, [FlxKey.UP]);
@@ -557,7 +557,7 @@ class Controls extends FlxActionSet
 					bindKeys(Control.RIGHT, [FlxKey.RIGHT]);
 					bindKeys(Control.ACCEPT, [O]);
 					bindKeys(Control.BACK, [P]);
-					bindKeys(Control.PAUSE, [ENTER]);
+					bindKeys(Control.PAUSE, [ESCAPE]);
 					bindKeys(Control.RESET, [BACKSPACE]);
 				case None: // nothing
 				case Custom: // nothing
